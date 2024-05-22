@@ -27,7 +27,7 @@ mongoose
 
     const io = new Server(server, {
         cors: {
-          origin: "https://code-hm02yr9ro-ronit-das-projects.vercel.app",
+          origin: "https://code-lab-eight.vercel.app",
           methods: ["GET", "POST"],
         },
       });
