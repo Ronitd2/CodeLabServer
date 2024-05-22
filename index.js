@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 const DATABASE=process.env.DATABASE;
-
+const PORT=process.env.PORT || 8000;
 const server = http.createServer(app);
 
 
@@ -166,6 +166,6 @@ mongoose
     app.use('/signup/',SignupHandler);
     app.use('/login/',LoginHandler);    
           
-server.listen(8080, () => {
-    console.log("SERVER IS RUNNING in port 8080");
+server.listen(PORT, () => {
+    console.log(`server start at port no ${PORT}`);
   });
