@@ -130,7 +130,7 @@ mongoose
               console.log(admin);
               socket.to(admin.socketid).emit("getaccess",{accesssender:data.name});
             });
-            socket.on("give-permission",(data)=>{
+            socket.on("give-permission",(data,callback)=>{
               console.log(data);
               const sendname=users.find(user=>user.name===data.sendername); 
               console.log(sendname);
@@ -138,8 +138,9 @@ mongoose
                 {
                   sendname.access=true;
                   console.log(sendname);
+                  
                 }
-              //socket.to(sendname.socketid).emit("getpermission",{access:data.accessmode});
+              socket.to(sendname.socketid).emit("getpermission",{access:data.accessmode});
             });
             socket.on("leave-permission",(data)=>{
               const people=users.find(user=>user.name===data.name);
