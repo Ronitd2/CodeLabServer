@@ -74,7 +74,7 @@ mongoose
               socket.join(data.roomid);
               
               //users=[...users,userobject];
-              const sendername=users.find(user=>user.socketid===socket.id)
+              const sendername=users.find(user=>user.socketid===socket.id && user.roomid==data.roomid)
           
               if(!sendername)
               {
