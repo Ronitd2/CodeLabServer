@@ -43,6 +43,7 @@ mongoose
                 const useradmin={
                     name:data.name,
                     socketid:socket.id,
+                    roomid:data.roomid,
                     access:true
                 }
                 const admin={
@@ -80,6 +81,7 @@ mongoose
                 userobject={
                   name:data.name,
                   socketid:socket.id,
+                  roomid:data.roomid,
                   access:false
                 }
                 users.push(userobject);
@@ -88,7 +90,7 @@ mongoose
               callback({ success: true });
             }
             else{
-              callback({ error: 'Room already exists.' });
+              callback({ error: 'Room does not exist.' });
             }
             });
           
