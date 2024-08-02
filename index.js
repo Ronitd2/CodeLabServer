@@ -105,7 +105,14 @@ mongoose
                     i--; // Decrement i since splice removes an element
                 }
             }
+            for (let i = 0; i < adminlist.length; i++) {
+              if (adminlist[i].socketid === socket.id) {
+                  adminlist.splice(i, 1);
+                  i--; // Decrement i since splice removes an element
+              }
+          }
             console.log(users);
+            console.log(adminlist);
             })
             socket.on("adduser",userid=>{
               //const isexist=users.find(users.userid===userid)
