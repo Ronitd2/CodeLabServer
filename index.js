@@ -99,6 +99,17 @@ mongoose
             })
             socket.on("logout-user",()=>{
               console.log("Logout process is going on...");
+              const isadmin=adminlist.find(admin=>adminlist.socketid===socket.id)
+              if(isadmin)
+              {
+                const roomname=mainroom.find(room=>room===isadmin.roomid)
+                let index = mainroom.indexOf(roomname);
+
+                if (index !== -1) {
+                    mainroom.splice(index, 1);
+                }
+              }
+              console.log(mainroom);
               for (let i = 0; i < users.length; i++) {
                 if (users[i].socketid === socket.id) {
                     users.splice(i, 1);
