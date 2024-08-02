@@ -102,12 +102,16 @@ mongoose
               const isadmin=adminlist.find(admin=>adminlist.socketid===socket.id)
               if(isadmin)
               {
-                const roomname=mainroom.find(room=>room===isadmin.roomid)
-                let index = mainroom.indexOf(roomname);
+                // const roomname=mainroom.find(room=>room===isadmin.roomid)
+                for(let i=0;i<isadmin.length;i++)
+                {
+                  let index = mainroom.indexOf(isadmin[i].roomid);
 
-                if (index !== -1) {
+                  if (index !== -1) {
                     mainroom.splice(index, 1);
                 }
+                }
+                
               }
               console.log(mainroom);
               for (let i = 0; i < users.length; i++) {
