@@ -103,10 +103,12 @@ mongoose
               if(isadmin)
               {
                 // const roomname=mainroom.find(room=>room===isadmin.roomid)
+                console.log("mainroom delete");
                 for(let i=0;i<isadmin.length;i++)
                 {
+                  console.log(isadmin[i]);
                   let index = mainroom.indexOf(isadmin[i].roomid);
-
+                  console.log(index);
                   if (index !== -1) {
                     mainroom.splice(index, 1);
                 }
