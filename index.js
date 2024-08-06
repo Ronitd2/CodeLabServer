@@ -103,6 +103,7 @@ mongoose
               if(isadmin)
               {
                 // const roomname=mainroom.find(room=>room===isadmin.roomid)
+                console.log(isadmin);
                 console.log("mainroom delete");
                 for(let i=0;i<isadmin.length;i++)
                 {
