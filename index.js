@@ -108,7 +108,7 @@ mongoose
                 for(let i=0;i<isadmin.length;i++)
                 {
                   console.log(isadmin[i]);
-                  let index = mainroom.indexOf(isadmin[i].roomid);
+                  let index = mainroom.indexOf(isadmin[i].roomname);
                   console.log(index);
                   if (index !== -1) {
                     mainroom.splice(index, 1);
