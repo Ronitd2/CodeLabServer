@@ -39,16 +39,29 @@ mongoose
           io.on("connection", (socket) => {
             console.log(`User Connected: ${socket.id}`);
             console.log(socket.request._query);
+            const usname=users.find(user=>user.email===socket.request._query.uid)
+            if(usname)
+            {
+              if(usname.socketid !== socket.id)
+              {
+                const index1 = users.findIndex(user => user.email === socket.request._query.uid);
+                const index2 = adminlist.findIndex(admin => admin.email === socket.request._query.uid);
+                users[index1].socketid=socket.id;
+                admin[index2].socketid=socket.id; 
+              }
+            }
             socket.on("create_room", (data,callback)=>{
                 const useradmin={
                     name:data.name,
                     socketid:socket.id,
                     roomid:data.roomid,
+                    email:data.email,
                     access:true
                 }
                 const admin={
                       name:data.name,
                       socketid:socket.id,
+                      email:data.email,
                       roomname:data.roomid
                 }
                 const existroom=mainroom.find(element=>element===data.roomid);
@@ -82,6 +95,7 @@ mongoose
                   name:data.name,
                   socketid:socket.id,
                   roomid:data.roomid,
+                  email:data.email,
                   access:false
                 }
                 users.push(userobject);
@@ -103,13 +117,13 @@ mongoose
               if(isadmin)
               {
                 // const roomname=mainroom.find(room=>room===isadmin.roomid)
-                console.log(isadmin);
-                console.log("mainroom delete");
+                // console.log(isadmin);
+                // console.log("mainroom delete");
                 for(let i=0;i<isadmin.length;i++)
                 {
-                  console.log(isadmin[i]);
+                  // console.log(isadmin[i]);
                   let index = mainroom.indexOf(isadmin[i].roomname);
-                  console.log(index);
+                  // console.log(index);
                   if (index !== -1) {
                     mainroom.splice(index, 1);
                 }
