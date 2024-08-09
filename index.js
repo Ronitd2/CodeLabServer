@@ -47,7 +47,10 @@ mongoose
                 const index1 = users.findIndex(user => user.email === socket.request._query.uid);
                 const index2 = adminlist.findIndex(admin => admin.email === socket.request._query.uid);
                 users[index1].socketid=socket.id;
+                if(index2!=-1)
+                {
                 adminlist[index2].socketid=socket.id; 
+                }
               }
             }
             socket.on("create_room", (data,callback)=>{
