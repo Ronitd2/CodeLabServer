@@ -76,7 +76,7 @@ mongoose
                 socket.join(data.roomid);
                 console.log(adminlist);
                 console.log(users);
-                io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
+                //io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
                 callback({ success: true });
                 }
                 else{
@@ -105,7 +105,7 @@ mongoose
                 users.push(userobject);
               }
               console.log(users);
-              io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
+              //io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
               callback({ success: true });
             }
             else{
