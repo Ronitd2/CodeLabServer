@@ -182,7 +182,7 @@ mongoose
             });
             socket.on("give-permission",(data,callback)=>{
               console.log(data);
-              const sendname=users.find(user=>user.socketid===socket.id && user.roomid===data.roomid); 
+              const sendname=users.find(user=>user.name===data.sendername && user.roomid===data.roomid); 
               console.log(sendname);
               if(data.accessmode==true)
                 {
