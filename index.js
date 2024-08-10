@@ -6,6 +6,7 @@ require('dotenv').config();
 const AImodelHandler=require("./routehandlers/AImodelroute")
 const SignupHandler=require("./routehandlers/Signup")
 const LoginHandler=require("./routehandlers/Login")
+const CompilerHandler=require("./routehandlers/CompilerHandler")
 const cors = require("cors");
 const app = express();
 
@@ -216,7 +217,7 @@ mongoose
     app.use('/aimodel/',AImodelHandler);
     app.use('/signup/',SignupHandler);
     app.use('/login/',LoginHandler);    
-          
+    app.use('/compile/',CompilerHandler);      
 server.listen(8080, () => {
     console.log("server start at port no 8000");
   });
