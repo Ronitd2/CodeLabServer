@@ -111,7 +111,12 @@ mongoose
               callback({ error: 'Room does not exist.' });
             }
             });
-          
+            
+            socket.on("receivedusers",(data,callback)=>{
+              const username=users.filter(user=>user.roomid===data.roomid);
+              console.log(username);
+              callback({users:username});
+            })
             socket.on("disconnect",()=>{
               console.log("User disconnected ",socket.id);
             })
