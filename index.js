@@ -78,7 +78,6 @@ mongoose
                 console.log(users);
                 //io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
                 callback({ success: true });
-                io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
                 }
                 else{
                   callback({ error: 'Room already exists.' });
@@ -107,7 +106,6 @@ mongoose
               }
               console.log(users);
               callback({ success: true });
-              io.to(data.roomid).emit("receivedusers", {name:data.name,access:useradmin.access,email:data.email});
             }
             else{
               callback({ error: 'Room does not exist.' });
