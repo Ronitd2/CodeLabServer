@@ -200,7 +200,7 @@ mongoose
             socket.on("editorcode", (data) => {
           
               console.log(data);
-              const userman=users.find(user=>user.socketid===socket.id); 
+              const userman=users.find(user=>user.socketid===socket.id && user.roomid===data.roomid); 
               console.log(userman);
               if(userman.access==true)
               {
