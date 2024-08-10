@@ -4,8 +4,10 @@ const {python} = require('compile-run');
 router.post('/',async (req,res)=>{
     
     try{
-    const sourcecode = `print("Hell0 W0rld!")`;
-    let resultPromise = await python.runSource(sourcecode);
+    console.log(req.body);
+    const source = `print("Hell0 W0rld!")`;
+
+    let resultPromise = await python.runSource(req.body.sourcecode);
     // resultPromise
     //     .then(result => {
     //         console.log(result);
