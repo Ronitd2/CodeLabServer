@@ -6,28 +6,29 @@ router.post('/',async (req,res)=>{
     try{
     console.log(req.body);
     const source = `print("Hell0 W0rld!")`;
-
+    let resultPromise="";
     if(req.body.program==="C++")
     {
-        const resultPromise = await cpp.runSource(req.body.sourcecode);    
+        console.log("Inside C++");
+         resultPromise = await cpp.runSource(req.body.sourcecode);    
 
     }
     else if(req.body.program==="C")
     {
-        const resultPromise = await c.runSource(req.body.sourcecode);    
+         resultPromise = await c.runSource(req.body.sourcecode);    
 
     }
     else if(req.body.program==="Java")
     {
-        const resultPromise = await java.runSource(req.body.sourcecode);    
+         resultPromise = await java.runSource(req.body.sourcecode);    
     }
     else if(req.body.program==="Python")
     {
-        const resultPromise = await python.runSource(req.body.sourcecode);      
+         resultPromise = await python.runSource(req.body.sourcecode);      
     }
     else if(req.body.program==="Javascript")
     {
-        const resultPromise = await node.runSource(req.body.sourcecode);    
+         resultPromise = await node.runSource(req.body.sourcecode);    
   
     }
     //let resultPromise = await python.runSource(req.body.sourcecode);
