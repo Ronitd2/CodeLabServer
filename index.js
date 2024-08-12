@@ -84,7 +84,8 @@ mongoose
                   callback({ error: 'Room already exists.' });
                 }
             })
-          
+            
+            
             socket.on("join_room", (data,callback) => {
               const existroom=mainroom.find(element=>element===data.roomid);
               if(existroom)
@@ -113,6 +114,13 @@ mongoose
             }
             });
             
+            socket.on("removeperm", (data) => {
+              const username=users.find(user=>user.roomid===data.roomid && user.socketid===data.socketid);  
+              console.log(username);
+              username.access=false;
+              socket.to(username.socketid).emit("permissionleavebyadmin", {access:false});
+            })
+
             socket.on("receivedusers",(data,callback)=>{
               const username=users.filter(user=>user.roomid===data.roomid);
               console.log(username);
