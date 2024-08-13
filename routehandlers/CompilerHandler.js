@@ -10,7 +10,7 @@ router.post('/',async (req,res)=>{
     if(req.body.program==="C++")
     {
         console.log("Inside C++");
-         resultPromise = await cpp.runSource(req.body.sourcecode);    
+         resultPromise = await cpp.runSource({ stdin:req.body.input},req.body.sourcecode);    
 
     }
     else if(req.body.program==="C")
